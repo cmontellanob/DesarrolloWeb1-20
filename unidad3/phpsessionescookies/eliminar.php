@@ -1,5 +1,5 @@
 <?php include("pila.php");
 session_start(); 
-echo $_SESSION['p']->eliminar();
+echo "El valor eliminado es ".$_SESSION['p']->eliminar();
 ?>
-<meta http-equiv="refresh" content="5;URL=menu.php">   
+<meta http-equiv="refresh" content="3;URL=menu.php">   

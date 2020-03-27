@@ -1,7 +1,7 @@
 <?php include("pila.php");
 session_start();
-$_SESSION['p']->insertar("hola");
-$_SESSION['p']->insertar("hola");
-$_SESSION['p']->insertar("hola");
+$valor=$_GET['valor'];
+$_SESSION['p']->insertar($valor);
 ?>
-<meta http-equiv="refresh" content="5;URL=menu.php">   
+Se inserto con exito
+<meta http-equiv="refresh" content="3;URL=menu.php">   

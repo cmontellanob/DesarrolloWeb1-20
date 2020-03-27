@@ -10,7 +10,6 @@
 	{
 		$this->elementos[$this->tope]=$elemento;
 		$this->tope++;
-		echo $this->tope;
 	}
 	public function eliminar()
 	{
