@@ -1,6 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Listado de Personas relacionadas al Coronavirus</title>
+</head>
+<body>
+	
+
 <?php include("conexion.php");
 $sql="select id,nombre,apellidos,edad,sexo,celular,estado,fecha from persona";
-echo $sql;
+//echo $sql;
 $resultado=$con->query($sql);
 ?>
 <table>
@@ -11,6 +20,7 @@ $resultado=$con->query($sql);
 	<th>Celular</th>
 	<th>Estado</th>
 	<th>Fecha</th>
+	<th>Operaciones</th>
 	<tr>
 		<?php
 		while ($fila=$resultado->fetch_assoc())
@@ -24,6 +34,10 @@ $resultado=$con->query($sql);
 		<td><?php echo $fila['celular'];?></td>
 		<td><?php echo $fila['estado'];?></td>
 		<td><?php echo $fila['fecha'];?></td>
+		<td>
+		<a href="formeditar.php?id=<?php echo $fila['id'];?>"><img src="editar.png" width="10px">Editar</a>
+		<a href="eliminar.php?id=<?php echo $fila['id'];?>"><img src="eliminar.png" width="10px">Eliminar</a>
+	</td>
 		</tr>
 		<?php 
 		}
@@ -31,3 +45,8 @@ $resultado=$con->query($sql);
 	</tr>
 
 </table>
+<ul>
+	<li><a href="forminsertar.html">Insertar Persona</a></li>
+</ul>
+</body>
+</html>
