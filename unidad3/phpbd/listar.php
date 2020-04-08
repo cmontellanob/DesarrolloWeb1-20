@@ -8,15 +8,18 @@
 	
 
 <?php include("conexion.php");
-$sql="select id,nombre,apellidos,edad,sexo,celular,estado,fecha from persona";
-//echo $sql;
+$sql="select persona.id,fotografia,nombre,apellidos,edad,sexo,procedencia,celular,estado,fecha from persona left join procedencias  on persona.idprocedencia=procedencias.id ";
+echo $sql;
 $resultado=$con->query($sql);
 ?>
 <table>
+	<th>Fotografia</th>
 	<th>Nombres</th>
 	<th>Apellidos</th>
 	<th>Edad</th>
 	<th>Sexo</th>
+	<th>Procedencia</th>
+	
 	<th>Celular</th>
 	<th>Estado</th>
 	<th>Fecha</th>
@@ -27,12 +30,33 @@ $resultado=$con->query($sql);
 		{
 			?>
 		<tr>
+		<td><img src="<?php echo 'images/'.$fila['fotografia'];?>" alt="" width="40">  </td>
 		<td><?php echo $fila['nombre'];?> </td>
 		<td><?php echo $fila['apellidos'];?></td>
 		<td><?php echo $fila['edad'];?></td>
 		<td><?php echo $fila['sexo'];?></td>
 		<td><?php echo $fila['celular'];?></td>
-		<td><?php echo $fila['estado'];?></td>
+		<td><?php echo $fila['procedencia'];?></td>
+		<td><?php 
+		switch ($fila['estado']) 
+		{case "S":
+			echo "Sano";
+			break;
+		case "I":
+			echo "Infectado";
+			break;
+		case "O":
+			echo "Sospechoso";
+			break;
+		case "P":	
+			echo "Por Confirmar";
+			break;
+		case "R":
+			echo "Recuperado";
+		}	
+
+
+		?></td>
 		<td><?php echo $fila['fecha'];?></td>
 		<td>
 		<a href="formeditar.php?id=<?php echo $fila['id'];?>"><img src="editar.png" width="10px">Editar</a>
@@ -46,7 +70,7 @@ $resultado=$con->query($sql);
 
 </table>
 <ul>
-	<li><a href="forminsertar.html">Insertar Persona</a></li>
+	<li><a href="forminsertar.php">Insertar Persona</a></li>
 </ul>
 </body>
 </html>

@@ -4,11 +4,16 @@ $nombre=$_POST['txtNombre'];
 $apellido=$_POST['txtApellido'];
 $edad=$_POST['numEdad'];
 $sexo=$_POST['txtSexo'];
+$idprocedencia=$_POST['selProcedencia'];
+
 $celular=$_POST['numCelular'];
 $estado=$_POST['selEstado'];
 $fecha=$_POST['fecRegistro'];
-$sql="update persona set nombre='$nombre',apellidos='$apellido',edad=$edad,sexo='$sexo',celular=$celular,estado='$estado',fecha='$fecha' where id=".$id;
-//echo $sql;
+$sql="update persona set nombre='$nombre',apellidos='$apellido',edad=$edad,sexo='$sexo',idprocedencia=$idprocedencia,celular=$celular,estado='$estado',fecha='$fecha' where id=".$id;
+if (isset($_FILES['imgFotografia']['tmp_name']))
+	copy($_FILES['imgFotografia']['tmp_name'],'images/'.$fotografia);
+
+echo $sql;
 $resultado=$con->query($sql);
 if ($resultado)
 	echo "se edito con exito";
