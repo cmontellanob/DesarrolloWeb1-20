@@ -1,3 +1,4 @@
+<?php include('comprobar.php'); ?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +10,12 @@
 
 <?php include("conexion.php");
 $sql="select persona.id,fotografia,nombre,apellidos,edad,sexo,procedencia,celular,estado,fecha from persona left join procedencias  on persona.idprocedencia=procedencias.id ";
-echo $sql;
+//echo $sql;
+echo "usted esta autenticado como".$_SESSION['correo'];
+
 $resultado=$con->query($sql);
 ?>
+<a href="cerrar.php">Cerrar Session</a>
 <table>
 	<th>Fotografia</th>
 	<th>Nombres</th>
@@ -59,8 +63,12 @@ $resultado=$con->query($sql);
 		?></td>
 		<td><?php echo $fila['fecha'];?></td>
 		<td>
+		<?php if ($_SESSION['nivel']==1)
+		{?> 
 		<a href="formeditar.php?id=<?php echo $fila['id'];?>"><img src="editar.png" width="10px">Editar</a>
 		<a href="eliminar.php?id=<?php echo $fila['id'];?>"><img src="eliminar.png" width="10px">Eliminar</a>
+		<?php }?>
+
 	</td>
 		</tr>
 		<?php 
@@ -70,7 +78,11 @@ $resultado=$con->query($sql);
 
 </table>
 <ul>
+		<?php if ($_SESSION['nivel']==1)
+		{?> 
+	
 	<li><a href="forminsertar.php">Insertar Persona</a></li>
+<?php }?>
 </ul>
 </body>
 </html>

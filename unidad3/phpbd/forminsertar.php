@@ -1,4 +1,6 @@
-<?php include("conexion.php");
+<?php  include("comprobar.php");
+include("comprobaradministrador.php");
+include("conexion.php");
 $sql="select id,procedencia from procedencias";
 $resultado=$con->query($sql);
 ?>
@@ -52,3 +54,4 @@ $resultado=$con->query($sql);
 
 </body>
 </html>
+

@@ -1,4 +1,5 @@
-<?php include("conexion.php");
+<?php include("comprobar.php"); 
+include("conexion.php");
 $id=$_GET['id'];
 $sql="select fotografia from persona where id=$id";
 $resultado=$con->query($sql);

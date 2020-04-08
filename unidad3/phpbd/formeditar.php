@@ -1,4 +1,5 @@
-<?php include("conexion.php");
+<?php include("comprobar.php");
+include("conexion.php");
 $id=$_GET['id'];
 $sql="select id,fotografia, nombre,apellidos,edad,sexo,idprocedencia,celular,estado,fecha from persona where id=".$id;
 //echo $sql;
@@ -16,7 +17,7 @@ $procedencias=$con->query($sql);
 	<title>Insertar Datos</title>
 </head>
 <body>
-	<form action="editar.php" method="POST" >
+	<form action="editar.php" method="POST" enctype="multipart/form-data">
 	<img src="images/<?php echo $fila['fotografia']; ?>" width="80" >
 	<label for="imgFotografia">Fotografia<br>
 	<input type="file" name="imgFotografia"> <br>
