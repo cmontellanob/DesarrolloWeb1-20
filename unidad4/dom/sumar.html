@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <label for="txtA">A:</label>
+    <input type="text" name="txtA" id="a"> <br>
+    <label for="txtB">B:</label>
+    <input type="text" name="txtB" id="b"> <br>
+    <input type="button" value="sumar" onclick="calcular();">
+
+    <div id="resultado">resultado</div>
+    <script>
+        function calcular() {
+            a = document.getElementById('a');
+            A = parseInt(a.value);
+            b = document.getElementById('b');
+            B = parseInt(b.value);
+            C = A + B;
+            resultado = document.getElementById('resultado');
+            resultado.innerHTML = C;
+
+        }
+    </script>
+</body>
+
+</html>

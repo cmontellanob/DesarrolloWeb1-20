@@ -9,7 +9,19 @@
 	
 
 <?php include("conexion.php");
-$sql="select persona.id,fotografia,nombre,apellidos,edad,sexo,procedencia,celular,estado,fecha from persona left join procedencias  on persona.idprocedencia=procedencias.id ";
+$orden=$_GET['orden'];
+$forma=$_GET['forma'];
+if (!isset($_GET['orden']))
+{
+	$orden="id";
+	$forma="";
+}
+$sql="select persona.id,fotografia,nombre,apellidos,edad,sexo,procedencia,celular,estado,fecha from persona left join procedencias  on persona.idprocedencia=procedencias.id  order by ".$orden." ".$forma;
+if ($forma=="")
+   $forma="desc";
+   else
+   $forma="";	
+
 //echo $sql;
 echo "usted esta autenticado como".$_SESSION['correo'];
 
@@ -18,15 +30,16 @@ $resultado=$con->query($sql);
 <a href="cerrar.php">Cerrar Session</a>
 <table>
 	<th>Fotografia</th>
-	<th>Nombres</th>
-	<th>Apellidos</th>
-	<th>Edad</th>
-	<th>Sexo</th>
-	<th>Procedencia</th>
+	<th><a href="listar.php?orden=nombre&forma=<?php if ($orden=="nombre") echo $forma;?>">Nombres</a></th>
+	<th><a href="listar.php?orden=apellidos&forma=<?php if ($orden=="apellidos") echo $forma;?>">Apellidos</a></th>
+	<th><a href="listar.php?orden=edad&forma=<?php if ($orden=="edad") echo $forma;?>">Edad</a></th>
+	<th><a href="listar.php?orden=sexo&forma=<?php if ($orden=="sexo") echo $forma;?>">Sexo</a></th>
 	
-	<th>Celular</th>
-	<th>Estado</th>
-	<th>Fecha</th>
+	<th><a href="listar.php?orden=celular&forma=<?php  if ($orden=="celular") echo $forma;?>">Celular</a></th>
+	<th><a href="listar.php?orden=procedencia&forma=<?php if ($orden=="procedencia") echo $forma;?>">Procedencia</a></th>
+	
+	<th><a href="listar.php?orden=estado&forma=<?php if ($orden=="estado") echo $forma;?>">Estado</a></th>
+	<th><a href="listar.php?orden=fecha&forma=<?php if ($orden=="fecha") echo $forma;?>">Fecha</a></th>
 	<th>Operaciones</th>
 	<tr>
 		<?php

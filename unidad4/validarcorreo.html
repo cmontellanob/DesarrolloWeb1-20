@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function VerificarCorreo(cadena) {
+            var patron = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/
+            if (!patron.test(cadena))
+                alert(cadena + " contiene caracteres extraños.")
+            else {
+                alert(cadena + " es correcta.")
+            }
+            // -->
+        }
+        VerificarCorreo("prueba@este.com");
+    </script>
+</body>
+
+</html>

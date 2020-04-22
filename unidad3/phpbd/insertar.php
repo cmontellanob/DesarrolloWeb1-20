@@ -1,4 +1,5 @@
-<?php include("conexion.php");
+<?php include("comprobar.php");
+include("conexion.php");
 
 $nombre=$_POST['txtNombre'];
 $apellido=$_POST['txtApellido'];

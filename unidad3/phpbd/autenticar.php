@@ -1,8 +1,9 @@
 <?php session_start();
-$correo=$_POST['txtCorreo'];
-$password=sha1($_POST['txtPassword']);
+$correo=str_replace("'","",$_POST['txtCorreo']);
+$password=sha1(str_replace("'","",$$_POST['txtPassword']);
 include('conexion.php');
 $sql="select correo,nivel from usuarios where correo='$correo' and password='$password'";
+echo $sql;
  $resultado=$con->query($sql);
  if ($fila=$resultado->fetch_assoc())
  {
@@ -10,7 +11,7 @@ $sql="select correo,nivel from usuarios where correo='$correo' and password='$pa
  	$_SESSION['correo']=$correo;
  	$_SESSION['nivel']=$fila['nivel'];
  	
-    header("Location: listar.php");
+   header("Location: listar.php");
  }
  else
    {

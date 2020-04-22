@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PHP</title>
+    <script>
+        function cambiar() {
+            var selNivel = document.getElementById('nivel');
+            var selColegio = document.getElementById('colegio');
+
+            if (selNivel.value == 2) {
+                selColegio.style.display = 'none';
+                document.getElementById('lcolegio').style.display = 'none';
+            } else {
+                selColegio.style.display = 'inline';
+                document.getElementById('lcolegio').style.display = 'inline';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form action="crudDB/registrar.php" method="POST">
+
+
+        <label>Nombre:</label>
+        <input type="text" name="nombre" required=""><br><br>
+        <label>Apellidos:</label>
+        <input type="text" name="apellidos" required=""><br><br>
+        <label>Telefono:</label>
+        <input type="text" name="telefono" required=""><br><br>
+        <label>E-mail</label>
+        <input type="text" name="correo" required=""><br><br> Ocupacion <select name="nivel" id="nivel" onchange="cambiar()">
+			<option value="1">Estudiante</option>
+			<option value="2">Profesional</option>
+		</select><br><br>
+        <label for="colegio" id="lcolegio">Colegio</label>
+        <select name="colegio" id="colegio">
+			<option value="particular">Particular</option>
+			<option value="fiscal">Fiscal</option>
+		</select><br><br>
+        <input type="submit" name="registrar" value="Registrar">
+    </form>col
+
+</body>
+
+</html>
