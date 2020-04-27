@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    ingrese sus datos
+    <form action="">
+        n <input type="text" class="text" name="txtn">
+    </form>
+    <form id="form1" name="form1" method="post">
+        nombre <input name="txtTitulo" type="text" id="txtTitulo" /> <br /> Apellido
+        <input type="text" name="txtAutor" value="datos de prueba" /><br /> direccion
+        <input type="text" name="txtISBN" /><br /> Telefono <input type="text" name="txtEditorial" /><br /> Email
+        <input type="text" name="txtEdicion" /> <br />
+        <input type="button" name="button" id="button" value="Contar" onclick="Contar()" />
+    </form>
+
+    <div id="resultado"></div>
+    <script type="text/javascript">
+        function Contar() {
+            var f = document.forms;
+            var l = f.length;
+            document.getElementById("resultado").innerHTML = "Existen " + l + " formularios en la pagina" + "<br>" + "el autor es:" + f[0].txtn.value;
+        }
+    </script>
+
+
+</body>
+
+</html>
