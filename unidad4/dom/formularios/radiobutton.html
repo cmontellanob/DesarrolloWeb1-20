@@ -13,15 +13,31 @@
     <input type="radio" value="si" name="pregunta" id="pregunta_si" onchange="Seleccionado()" /> SI <br>
     <input type="radio" value="no" name="pregunta" id="pregunta_no" onchange="Seleccionado()" /> NO <br>
     <input type="radio" value="nsnc" name="pregunta" id="pregunta_nsnc" checked="checked" onchange="Seleccionado()" /> NS/NC <br>
-
+    <div id="resultado">
+        <img src="" alt="" id="imagen">
+    </div>
 
     <script type="text/javascript">
         function Seleccionado() {
             var elementos = document.getElementsByName("pregunta");
-            for (var i = 0; i < elementos.length; i++) {
-                alert(" Elemento: " + elementos[i].value + "\n Seleccionado: " +
-                    elementos[i].checked);
+            var imagen = document.getElementById("imagen");
+            var resultado = document.getElementById("resultado");
+            if (elementos[0].checked) {
+                resultado.style = "border:solid;background=green";
+                imagen.src = "corazon.jpg";
+
             }
+            if (elementos[1].checked) {
+                resultado.style = "border:solid;background=red";
+
+                imagen.src = "estrella.jpg";
+            }
+            if (elementos[2].checked) {
+                resultado.style = "border:solid;background=blue";
+
+                imagen.src = "pregunta.jpg";
+            }
+
         }
     </script>
 
