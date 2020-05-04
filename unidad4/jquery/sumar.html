@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.5.0.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    A<input type="number" id="txtA"><br> B <input type="number" name="" id="txtB"><br>
+    <input type="button" value="saumar" id="btnsumar">
+    <div id="resultado"></div>
+    <script>
+        $(document).ready(function() {
+            $("#btnsumar").click(function() {
+                a = $("#txtA").val();
+                b = $("#txtB").val();
+                $("#resultado").html(a + b);
+            });
+        });
+    </script>
+</body>
+
+</html>

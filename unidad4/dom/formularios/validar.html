@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+</head>
+
+<body>
+    <form id="formulario" action="registrar.php" method="post ">
+        Nombres:
+        <input type="text" name="txtnombres" /></br>
+        Apellidos:
+        <input type="text" name="txtapellidos" /></br>
+        Direccion:
+        <input type="text" name="txtdireccion" /></br>
+        Telefono:
+        <input type="text" name="txttelefono" /></br>
+        Email
+        <input type="text" name="txtemail" /></br>
+        <input type="button" value="verificar" onclick="validarForm()" />
+    </form>
+    <div id="mensaje">
+
+    </div>
+    <script>
+        function validarForm() {
+            var formulario = document.getElementById("formulario");
+            var m = document.getElementById('mensaje');
+
+            if (formulario.txtnombres.value.length == 0) { //comprueba que no esté vacío
+                formulario.txtnombres.focus();
+                m.innerHTML = 'No has escrito tu nombre';
+                return false; //devolvemos el foco
+            }
+            if (formulario.txtdireccion.value.length == 0) { //comprueba que no esté vacío
+                formulario.txtdireccion.focus();
+                m.innerHTML = 'No has escrito tu direccion';
+                return false; //devolvemos el foco
+            }
+            if (formulario.txtapellidos.value.length == 0) { //comprueba que no esté vacío
+                formulario.txtapellidos.focus();
+                m.innerHTML = 'No has escrito tu apellido';
+                return false; //devolvemos el foco
+            }
+            if (formulario.txttelefono.value.length == 0) { //comprueba que no esté vacío
+                formulario.txttelefono.focus();
+                m.innerHTML = 'No has escrito tu telefono';
+                return false; //devolvemos el foco
+            }
+            if (formulario.txtemail.value.length == 0) { //comprueba que no esté vacío
+                formulario.txtemail.focus();
+                m.innerHTML = 'No has escrito tu Email';
+                return false; //devolvemos el foco
+            }
+            var valor = formulario.txtemail.value;
+            var plant = /[^\w^@^\.^-]+/gi
+            if (plant.test(valor)) {
+                m.innerHTML = valor + " contiene caracteres extraños. ";
+                formulario.txtemail.focus();
+                return false;
+            } else {
+                plant = /(^\w+)(@{1})([\w\.-]+$)/i
+                if (!plant.test(valor)) {
+                    m.innerHTML = 'Email no valido';
+                    formulario.Email.focus();
+                    return false;
+                }
+            }
+            formulario.submit();
+            return true;
+        }
+    </script>
+
+</body>
+
+</html>
