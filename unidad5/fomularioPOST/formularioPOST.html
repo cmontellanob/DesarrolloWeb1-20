@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form method="POST">
+        <label for="nombre">nombre </label>
+        <input type="text" name="nombre" id="nombre"> <br>
+        <label for="apellido">apellido </label>
+        <input type="text" name="apellido" id="apellido"> <br>
+        <input type="button" value="registrar" onclick="llamarregistrar()"> <br>
+        <div id="resultado" style="background-color: aqua;height: 20px;"></div>
+    </form>
+    <script>
+        function llamarregistrar() {
+            var ajax = new XMLHttpRequest() //es hacer llamadas apaginas 
+
+            var parametros = "nombre=" + encodeURI(document.getElementById('nombre').value) + "&apellido=" + encodeURI(document.getElementById('apellido').value) + "&nocache=" + Math.random();
+            //alert(direccion);
+            ajax.open("post", "registrar.php", true); //a quien llamara
+            ajax.onreadystatechange = function() { // funcion de respuesta
+                if (ajax.readyState == 4) {
+                    document.getElementById("resultado").innerHTML = ajax.responseText;
+                }
+            }
+            ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //clave para que funcione cuando se envia por post 
+            ajax.send(parametros); //llamar a la pagina
+
+        }
+    </script>
+</body>
+
+</html>

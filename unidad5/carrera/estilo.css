@@ -1,0 +1,35 @@
+#contenedor{width: 1200px;
+}
+
+#titulo{
+    height: 100px;
+    width: 1200px;
+    background: red;
+    float: left;
+    border: black;
+    text-align: center;
+}
+
+#cabecera{
+	height: 350px;
+	background: #669999;
+	width: 1200px;
+    float: left;
+    border: black;
+}
+
+#perfil{
+	width: 300px;
+	height: 350px;
+	background: yellow;
+	float: left;
+    text-align: center;
+    border: black;
+}
+
+#Descripcion{
+	width: 600px;
+	height: 350px;
+	float: left;
+    text-align: left;
+}

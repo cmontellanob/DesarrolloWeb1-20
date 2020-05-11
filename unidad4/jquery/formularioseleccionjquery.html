@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PHP</title>
+    <script src="jquery-3.5.0.min.js"></script>
+</head>
+
+<body>
+    <form action="crudDB/registrar.php" method="POST">
+
+
+        <label>Nombre:</label>
+        <input type="text" name="nombre" required=""><br><br>
+        <label>Apellidos:</label>
+        <input type="text" name="apellidos" required=""><br><br>
+        <label>Telefono:</label>
+        <input type="text" name="telefono" required=""><br><br>
+        <label>E-mail</label>
+        <input type="text" name="correo" required=""><br><br> Ocupacion <select name="nivel" id="nivel">
+			<option value="1">Estudiante</option>
+			<option value="2">Profesional</option>
+		</select><br><br>
+        <label for="colegio" id="lcolegio">Colegio</label>
+        <select name="colegio" id="colegio">
+			<option value="particular">Particular</option>
+			<option value="fiscal">Fiscal</option>
+		</select><br><br>
+        <input type="submit" name="registrar" value="Registrar">
+    </form>col
+    <script>
+        $(document).ready(function() {
+            $('#nivel').on('change', function() {
+                if ($('#nivel').val() == 2) {
+                    $('#colegio,#lcolegio').hide();
+
+                } else {
+                    $('#colegio,#lcolegio').show();
+                }
+
+            })
+        })
+    </script>
+
+</body>
+
+</html>

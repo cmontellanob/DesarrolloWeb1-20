@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.5.0.min.js"></script>
+</head>
+
+<body>
+    <div>Esta es un div</div>
+    <div>Esta es dos div</div>
+    <div>Esta es tres div</div>
+    <script>
+        // Obtiene el valor de una propiedad CSS
+        // En este caso, solo para el primer 'div' de la página
+        //$('div').css('background');
+        // Establece el valor de una propiedad CSS
+        // En este caso, para todos los 'div' de la página
+        //$('div').css('color', '#000000');
+        // Establece varias propiedades CSS
+        // En este caso, para todos los 'div' de la página
+        $('div').css({
+            padding: '3px',
+            color: '#CC0000'
+        });
+    </script>
+</body>
+
+</html>
