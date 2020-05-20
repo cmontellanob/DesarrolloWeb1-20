@@ -1,43 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="estilo.css">
-
-    <title>Document</title>
-</head>
-
-<body>
-
-    <hr>
-    <div id="contenedor">
-        <div id="titulo">
-            <h2>USFX</h2>
-        </div>
-        <div id="cabecera">
-
-            <div id="perfil">
-                <ul>
-                    <li><a href="javascript:cargar('inicio.html')">Inicio</a> </li>
-                    <li><a href="javascript:cargar('perfil.html')"> Perfil</a></li>
-                    <li><a href="javascript:cargar('historia.html')"> Historia</a></li>
-                    <li><a href="javascript:cargar('formularioPOST.php')"> Registrar</a></li>
-                </ul>
-            </div>
-            <div id="Descripcion">
-                Proident dolor deserunt et mollit. Eu cupidatat laborum id Lorem minim. Ea tempor eu ad dolor cillum deserunt est laborum occaecat. Proident anim ipsum esse id do sunt. Aute est consectetur laboris veniam. Ut nisi nulla tempor qui enim. Do proident ipsum
-                officia minim aute cillum exercitation duis occaecat ea culpa aute.
-
-                </ul>
-
-            </div>
-        </div>
-        <div></div>
-    </div>
-    <hr>
-    <script>
         function cargar(pagina) {
 
             var ajax = new XMLHttpRequest() //es hacer llamadas apaginas 
@@ -96,7 +56,3 @@
             ajax.send(); //llamar a la pagina
 
         }
-    </script>
-</body>
-
-</html>
