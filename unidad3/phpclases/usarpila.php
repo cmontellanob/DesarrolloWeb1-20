@@ -8,3 +8,4 @@ echo "Elemento eliminado=".$p->eliminar()."<br>";
 $p->mostrar();
 
 ?>
+<meta http-equiv="refresh" content="5;URL=menu.php">  
