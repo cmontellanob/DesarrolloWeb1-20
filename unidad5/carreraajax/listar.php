@@ -14,5 +14,5 @@ $sql2="select nombre,apellido from person";
 		<tr>
 		<td><?php echo $fila['nombre'];?> </td>
 		<td><?php echo $fila['apellido'];?></td>
-        <?php }?>    
+        <?php  }?>    
         </table>
